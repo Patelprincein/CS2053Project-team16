@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b02avh0ck7knp"]
+
+[ext_resource type="Script" path="res://enemies/enemy_bullet.gd" id="1_60iq8"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qabr6"]
+size = Vector2(5, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3d5e"]
+size = Vector2(5, 1)
+
+[node name="Bullet" type="Node2D" groups=["enemyBullet"]]
+script = ExtResource("1_60iq8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_qabr6")
+
+[node name="Area2D" type="Area2D" parent="." groups=["enemyBullet"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_u3d5e")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

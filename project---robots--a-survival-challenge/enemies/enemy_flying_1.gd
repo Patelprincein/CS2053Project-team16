@@ -6,8 +6,17 @@ var seePlayer: bool = false
 var raycast_length: float = 300.0
 var last_pos: Vector2
 
+var bullet_scene = preload("res://enemies/enemy_bullet.tscn")
+
 @export var player: Node2D
+@export var health: int = 5
 @onready var pathfollow: PathFollow2D = get_parent()
+
+
+func _ready() -> void:
+	$HealthBar.max_value = health
+	$HealthBar.value = health
+
 
 func _physics_process(delta: float) -> void:
 	last_pos = global_position
@@ -16,7 +25,7 @@ func _physics_process(delta: float) -> void:
 		patrol(delta)
 	else:
 		if seePlayer:
-			shoot()
+			shooting_motion()
 		else:
 			return_to_path()
 	
@@ -55,10 +64,17 @@ func check_if_sees_player():
 
 
 # Shoot the player
-func shoot():
+func shooting_motion():
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * speed
 	move_and_slide()
+
+func shoot():
+	var bullet = bullet_scene.instantiate()
+	
+	bullet.global_position = position
+	bullet.direction = (player.global_position - global_position).normalized()
+	get_parent().add_child(bullet)
 
 
 # Return to Path
@@ -80,7 +96,6 @@ func set_animation():
 	else:
 		v = velocity
 	
-	print(str(v))
 	
 	var vertical_threshold: float = 10.0
 	
@@ -100,3 +115,22 @@ func set_animation():
 				$AnimatedSprite2D.play("down-left")
 			else:
 				$AnimatedSprite2D.play("down-right")
+
+# Ouch
+func got_hit():
+	health -= 1
+	$HealthBar.value = health
+	if health <= 0:
+		queue_free()
+
+
+
+func _on_bullet_timer_timeout() -> void:
+	if seePlayer:
+		shoot()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("playerBullet"):
+		got_hit()
+		area.get_parent().queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfd3yuas8imc3"]
+[gd_scene load_steps=6 format=3 uid="uid://bfd3yuas8imc3"]
 
 [ext_resource type="Script" path="res://enemies/temp_player.gd" id="1_a6mtl"]
 
@@ -6,6 +6,12 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wbvi1"]
 size = Vector2(18, 18)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tejxy"]
+size = Vector2(30, 2)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g7dtc"]
+size = Vector2(30, 2)
 
 [node name="tempPlayer" type="Node2D"]
 script = ExtResource("1_a6mtl")
@@ -22,3 +28,18 @@ shape = SubResource("CircleShape2D_f8v8y")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 texture = SubResource("PlaceholderTexture2D_wbvi1")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -15.0
+offset_top = -20.0
+offset_right = 15.0
+offset_bottom = -18.0
+max_value = 5.0
+value = 5.0
+texture_under = SubResource("PlaceholderTexture2D_tejxy")
+texture_progress = SubResource("PlaceholderTexture2D_g7dtc")
+tint_under = Color(0, 0, 0, 0.803922)
+tint_over = Color(0, 0, 0, 1)
+tint_progress = Color(1, 0, 0, 1)
+
+[connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_entered"]

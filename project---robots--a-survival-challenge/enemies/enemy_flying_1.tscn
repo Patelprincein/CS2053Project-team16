@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqacd6yecqgqv"]
+[gd_scene load_steps=13 format=3 uid="uid://bqacd6yecqgqv"]
 
 [ext_resource type="Script" path="res://enemies/enemy_flying_1.gd" id="1_jjpe6"]
 [ext_resource type="Texture2D" uid="uid://rcp7b45o6aoj" path="res://enemies/textures/enemyFlying1-texture.png" id="2_8gxmv"]
@@ -80,6 +80,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_acxmw"]
+size = Vector2(30, 2)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tn1kc"]
+size = Vector2(30, 2)
+
 [node name="enemyFlying-1" type="CharacterBody2D"]
 script = ExtResource("1_jjpe6")
 
@@ -98,3 +104,23 @@ shape = SubResource("RectangleShape2D_64oxg")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_8min3")
 animation = &"idle-left"
+
+[node name="BulletTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -15.0
+offset_top = -24.0
+offset_right = 15.0
+offset_bottom = -22.0
+max_value = 5.0
+value = 5.0
+texture_under = SubResource("PlaceholderTexture2D_acxmw")
+texture_progress = SubResource("PlaceholderTexture2D_tn1kc")
+tint_under = Color(0, 0, 0, 0.803922)
+tint_over = Color(0, 0, 0, 1)
+tint_progress = Color(1, 0, 0, 1)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]

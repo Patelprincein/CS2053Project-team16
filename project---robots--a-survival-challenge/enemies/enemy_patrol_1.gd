@@ -4,15 +4,20 @@ var speed: int = 70
 var patrolling: bool = true
 var raycast_length: float = 100.0
 
+var bullet_scene = preload("res://enemies/enemy_bullet.tscn")
+
 @export var player: Node2D
+@export var health: int = 10
+
 @onready var pathfollow: PathFollow2D = get_parent()
 
+func _ready() -> void:
+	$HealthBar.max_value = health
+	$HealthBar.value = health
 
 func _physics_process(delta: float) -> void:
 	if patrolling:
 		patrol(delta)
-	else:
-		shoot()
 	
 	check_if_sees_player()
 
@@ -43,4 +48,25 @@ func check_if_sees_player():
 
 # Shoot the player
 func shoot():
-	pass
+	var bullet = bullet_scene.instantiate()
+	bullet.global_position = position
+	bullet.direction = (player.global_position - global_position).normalized()
+	get_parent().add_child(bullet)
+
+# Ouch
+func got_hit():
+	health -= 1
+	$HealthBar.value = health
+	if health <= 0:
+		queue_free()
+
+
+func _on_bullet_timer_timeout() -> void:
+	if not patrolling:
+		shoot()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("playerBullet"):
+		got_hit()
+		area.queue_free()

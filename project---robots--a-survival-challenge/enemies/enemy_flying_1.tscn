@@ -1,0 +1,100 @@
+[gd_scene load_steps=11 format=3 uid="uid://bqacd6yecqgqv"]
+
+[ext_resource type="Script" path="res://enemies/enemy_flying_1.gd" id="1_jjpe6"]
+[ext_resource type="Texture2D" uid="uid://rcp7b45o6aoj" path="res://enemies/textures/enemyFlying1-texture.png" id="2_8gxmv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64oxg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgxaq"]
+atlas = ExtResource("2_8gxmv")
+region = Rect2(3, 70, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cwhi"]
+atlas = ExtResource("2_8gxmv")
+region = Rect2(37, 70, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3327"]
+atlas = ExtResource("2_8gxmv")
+region = Rect2(3, 38, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjkrt"]
+atlas = ExtResource("2_8gxmv")
+region = Rect2(37, 38, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw15r"]
+atlas = ExtResource("2_8gxmv")
+region = Rect2(3, 6, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uri10"]
+atlas = ExtResource("2_8gxmv")
+region = Rect2(37, 6, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8min3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgxaq")
+}],
+"loop": true,
+"name": &"down-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cwhi")
+}],
+"loop": true,
+"name": &"down-right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3327")
+}],
+"loop": true,
+"name": &"idle-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjkrt")
+}],
+"loop": true,
+"name": &"idle-right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw15r")
+}],
+"loop": true,
+"name": &"up-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uri10")
+}],
+"loop": true,
+"name": &"up-right",
+"speed": 5.0
+}]
+
+[node name="enemyFlying-1" type="CharacterBody2D"]
+script = ExtResource("1_jjpe6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_64oxg")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(-100, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_64oxg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_8min3")
+animation = &"idle-left"

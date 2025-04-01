@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd4qkqjxvrcr1"]
+
+[ext_resource type="Texture2D" uid="uid://3awywf7hs1sc" path="res://pictures/hand.png" id="1_pqgr4"]
+
+[node name="Left_arm" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(30, 12)
+rotation = 0.312569
+scale = Vector2(1.11928, 0.874668)
+texture = ExtResource("1_pqgr4")

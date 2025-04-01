@@ -1,0 +1,444 @@
+[gd_scene load_steps=13 format=3 uid="uid://d3qr5h0jtkre8"]
+
+[ext_resource type="Script" path="res://player/scripts/player_body.gd" id="1_amnkh"]
+[ext_resource type="Texture2D" uid="uid://kkucg2ul52x3" path="res://player/visuals/Chest.png" id="1_f0het"]
+[ext_resource type="Texture2D" uid="uid://cp0l0s04ibddd" path="res://player/visuals/head.png" id="2_gda68"]
+[ext_resource type="Texture2D" uid="uid://3awywf7hs1sc" path="res://player/visuals/hand.png" id="5_5urws"]
+[ext_resource type="Texture2D" uid="uid://dnwsyel37m1ra" path="res://player/visuals/leg.png" id="6_3w4la"]
+[ext_resource type="Texture2D" uid="uid://8rgsjhfnt2ky" path="res://player/visuals/jet-pack.png" id="7_6dmi2"]
+
+[sub_resource type="Animation" id="Animation_r51kf"]
+resource_name = "Fly"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/ChestSprite/LLeg/LJet:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.126193, 0.437623, -0.3744, 0.126193]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/ChestSprite/LLeg/LJet:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-12.0975, 106.146), Vector2(-31.9829, 96.9905), Vector2(25.2774, 102.979), Vector2(-12.0975, 106.146)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/ChestSprite/RLeg/RJet:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(19.0106, 106.146), Vector2(55.3033, 99.8108), Vector2(41.1345, 98.446), Vector2(19.0106, 106.146)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/ChestSprite/RLeg/RJet:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.101977, -0.496089, -0.344445, 0.101977]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/ChestSprite/LLeg/LLegSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-6.91286, 55.4615), Vector2(-11.9701, 50.0812), Vector2(6.1926, 51.7613), Vector2(-6.91286, 55.4615)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/ChestSprite/LLeg/LLegSprite:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.27381e-05, 0.266194, -0.416256, 1.27381e-05]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Body/ChestSprite/RLeg/RLegSprite:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(20.7388, 53.8776), Vector2(30.709, 49.3902), Vector2(18.6675, 44.5933), Vector2(20.7388, 53.8776)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Body/ChestSprite/RLeg/RLegSprite:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [4.24063e-13, -0.326278, -0.310404, 4.24063e-13]
+}
+
+[sub_resource type="Animation" id="Animation_tcqgw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/ChestSprite/LLeg/LJet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.0975, 106.146)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/ChestSprite/LLeg/LJet:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0872665]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/ChestSprite/RLeg/RJet:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(19.0106, 106.146)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/ChestSprite/RLeg/RJet:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.101977]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/ChestSprite/LLeg/LLegSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6.91286, 55.4615)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/ChestSprite/LLeg/LLegSprite:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.27381e-05]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Body/ChestSprite/RLeg/RLegSprite:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20.7388, 53.8776)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Body/ChestSprite/RLeg/RLegSprite:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.24063e-13]
+}
+
+[sub_resource type="Animation" id="Animation_okgs0"]
+resource_name = "idle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/ChestSprite/LLeg/LLegSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6.91286, 55.4615)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/ChestSprite/LLeg/LLegSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.27381e-05]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/ChestSprite/RLeg/RLegSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20.7388, 53.8776)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/ChestSprite/RLeg/RLegSprite:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.24063e-13]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/ChestSprite/LLeg/LJet:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12.0975, 106.146)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/ChestSprite/LLeg/LJet:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.126193]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Body/ChestSprite/RLeg/RJet:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(19.0106, 106.146)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Body/ChestSprite/RLeg/RJet:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.101977]
+}
+
+[sub_resource type="Animation" id="Animation_p7e3m"]
+resource_name = "walk"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/ChestSprite/LLeg/LLegSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-6.91286, 55.4615), Vector2(-11.9701, 50.0812), Vector2(6.1926, 51.7613), Vector2(-6.91286, 55.4615)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/ChestSprite/LLeg/LLegSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.27381e-05, 0.266194, -0.416256, 1.27381e-05]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/ChestSprite/RLeg/RLegSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(20.7388, 53.8776), Vector2(22.467, 49.1259), Vector2(18.6675, 44.5933), Vector2(20.7388, 53.8776)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/ChestSprite/RLeg/RLegSprite:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [4.24063e-13, -0.326278, -0.310404, 4.24063e-13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lhihf"]
+_data = {
+"Fly": SubResource("Animation_r51kf"),
+"RESET": SubResource("Animation_tcqgw"),
+"idle": SubResource("Animation_okgs0"),
+"walk": SubResource("Animation_p7e3m")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11jb3"]
+size = Vector2(40.5, 129.5)
+
+[node name="Player-Body" type="CharacterBody2D"]
+script = ExtResource("1_amnkh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lhihf")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_11jb3")
+
+[node name="Body" type="Node2D" parent="."]
+scale = Vector2(5, 5)
+
+[node name="ChestSprite" type="Sprite2D" parent="Body"]
+z_index = 3
+position = Vector2(0.375, 0.72709)
+scale = Vector2(0.118902, 0.152402)
+texture = ExtResource("1_f0het")
+
+[node name="HeadSprite" type="Sprite2D" parent="Body/ChestSprite"]
+position = Vector2(-1.32949, -54.9454)
+scale = Vector2(0.860622, 0.624022)
+texture = ExtResource("2_gda68")
+
+[node name="RHand" type="Node2D" parent="Body/ChestSprite"]
+z_index = -1
+position = Vector2(-3.44427, -1.51589)
+scale = Vector2(1.22369, 1.03567)
+
+[node name="RHandSprite" type="Sprite2D" parent="Body/ChestSprite/RHand"]
+position = Vector2(25.438, 1.08087)
+rotation = 1.35865
+scale = Vector2(0.8, 0.8)
+skew = -0.0559331
+texture = ExtResource("5_5urws")
+
+[node name="LLeg" type="Node2D" parent="Body/ChestSprite"]
+z_index = -1
+position = Vector2(-3.44427, -1.51589)
+scale = Vector2(1.22369, 1.03567)
+
+[node name="LLegSprite" type="Sprite2D" parent="Body/ChestSprite/LLeg"]
+position = Vector2(-6.91286, 55.4615)
+rotation = 1.27381e-05
+scale = Vector2(0.878, 0.95)
+texture = ExtResource("6_3w4la")
+
+[node name="LJet" type="Sprite2D" parent="Body/ChestSprite/LLeg"]
+z_index = -1
+position = Vector2(-12.0975, 106.146)
+rotation = 0.0872665
+scale = Vector2(1.08923, 1.37391)
+skew = 0.116608
+texture = ExtResource("7_6dmi2")
+
+[node name="RLeg" type="Node2D" parent="Body/ChestSprite"]
+z_index = -2
+position = Vector2(-3.44427, -1.51589)
+scale = Vector2(1.22369, 1.03567)
+
+[node name="RLegSprite" type="Sprite2D" parent="Body/ChestSprite/RLeg"]
+position = Vector2(20.7388, 53.8776)
+scale = Vector2(0.878, 0.95)
+texture = ExtResource("6_3w4la")
+
+[node name="RJet" type="Sprite2D" parent="Body/ChestSprite/RLeg"]
+z_index = -1
+position = Vector2(19.0106, 106.146)
+rotation = 0.101977
+scale = Vector2(1.08923, 1.37391)
+skew = -0.0129361
+texture = ExtResource("7_6dmi2")

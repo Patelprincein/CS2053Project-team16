@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcp6xrutwmwbr"]
+
+[ext_resource type="Script" path="res://player/scripts/player.gd" id="1_u1ip0"]
+[ext_resource type="PackedScene" uid="uid://d3qr5h0jtkre8" path="res://player/scenes/player_body.tscn" id="2_2a8ry"]
+[ext_resource type="PackedScene" uid="uid://tcdyq4u1xssu" path="res://player/scenes/gun.tscn" id="4_vuoh5"]
+[ext_resource type="PackedScene" uid="uid://bd4qkqjxvrcr1" path="res://player/scenes/left_arm.tscn" id="4_yir0l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqkmq"]
+size = Vector2(40, 119)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_u1ip0")
+
+[node name="Player-Body" parent="." instance=ExtResource("2_2a8ry")]
+script = null
+
+[node name="Left_arm" parent="Player-Body" instance=ExtResource("4_yir0l")]
+z_index = 3
+position = Vector2(-16, -11.75)
+scale = Vector2(0.75, 0.75)
+
+[node name="Gun" parent="Player-Body/Left_arm" instance=ExtResource("4_vuoh5")]
+z_index = -1
+position = Vector2(102.667, 3.66667)
+scale = Vector2(0.84, 0.84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 3
+position = Vector2(2, 5.5)
+shape = SubResource("RectangleShape2D_mqkmq")
+
+[connection signal="body_entered" from="Player-Body/Left_arm/Gun" to="Player-Body/Left_arm/Gun" method="_on_body_entered"]

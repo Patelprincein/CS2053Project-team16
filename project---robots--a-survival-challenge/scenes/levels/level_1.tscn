@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dmviltsbi5do2"]
+[gd_scene load_steps=13 format=4 uid="uid://dmviltsbi5do2"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_lyj1o"]
 [ext_resource type="Script" path="res://scenes/levels/pause_menu.gd" id="2_kq5di"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c2srbxugapvy8" path="res://enemies/enemy_patrol_1.tscn" id="4_a4img"]
 [ext_resource type="PackedScene" uid="uid://bfd3yuas8imc3" path="res://enemies/temp_player.tscn" id="5_wimqq"]
 [ext_resource type="PackedScene" uid="uid://bqacd6yecqgqv" path="res://enemies/enemy_flying_1.tscn" id="6_linmh"]
+[ext_resource type="PackedScene" uid="uid://bcp6xrutwmwbr" path="res://player/scenes/player.tscn" id="7_weppe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rphgv"]
 texture = ExtResource("2_vg7w2")
@@ -108,7 +109,7 @@ progress = 489.358
 rotates = false
 
 [node name="enemyPatrol-1" parent="Enemies/patrol1/PathFollow2D" node_paths=PackedStringArray("player") instance=ExtResource("4_a4img")]
-player = NodePath("../../../../tempPlayer")
+player = NodePath("../../../../Player")
 
 [node name="patrol2" type="Path2D" parent="Enemies"]
 curve = SubResource("Curve2D_2734w")
@@ -121,6 +122,9 @@ rotates = false
 
 [node name="enemyFlying-1" parent="Enemies/patrol2/PathFollow2D" node_paths=PackedStringArray("player") instance=ExtResource("6_linmh")]
 rotation = 0.011299
-player = NodePath("../../../../tempPlayer")
+player = NodePath("../../../../Player")
+
+[node name="Player" parent="." instance=ExtResource("7_weppe")]
+position = Vector2(100, 0)
 
 [connection signal="body_entered" from="EndOfLevel" to="." method="_on_end_of_level_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://tcdyq4u1xssu"]
+
+[ext_resource type="Script" path="res://player/scripts/Gun.gd" id="1_706kr"]
+[ext_resource type="PackedScene" uid="uid://ctfpvutsluvy5" path="res://player/scenes/bullet.tscn" id="2_o5can"]
+[ext_resource type="Texture2D" uid="uid://fq87qg2fj6b1" path="res://player/visuals/pistol3.png" id="3_2hwta"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6xp4"]
+size = Vector2(67.5, 35.75)
+
+[node name="Gun" type="Area2D"]
+script = ExtResource("1_706kr")
+bullet_scene = ExtResource("2_o5can")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-29.5, 12)
+scale = Vector2(0.315534, 0.409639)
+texture = ExtResource("3_2hwta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-28.75, 11.125)
+shape = SubResource("RectangleShape2D_u6xp4")

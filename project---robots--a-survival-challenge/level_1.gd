@@ -6,12 +6,6 @@ const NEXT_LEVEL: String = "res://scenes/levels/level_2.tscn"
 func _ready() -> void:
 	print("level1")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_end_of_level_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		get_tree().change_scene_to_file(NEXT_LEVEL)

@@ -1,6 +1,5 @@
-[gd_scene load_steps=13 format=3 uid="uid://d3qr5h0jtkre8"]
+[gd_scene load_steps=12 format=3 uid="uid://d3qr5h0jtkre8"]
 
-[ext_resource type="Script" path="res://player/scripts/player_body.gd" id="1_amnkh"]
 [ext_resource type="Texture2D" uid="uid://kkucg2ul52x3" path="res://player/visuals/Chest.png" id="1_f0het"]
 [ext_resource type="Texture2D" uid="uid://cp0l0s04ibddd" path="res://player/visuals/head.png" id="2_gda68"]
 [ext_resource type="Texture2D" uid="uid://3awywf7hs1sc" path="res://player/visuals/hand.png" id="5_5urws"]
@@ -370,7 +369,6 @@ _data = {
 size = Vector2(40.5, 129.5)
 
 [node name="Player-Body" type="CharacterBody2D"]
-script = ExtResource("1_amnkh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

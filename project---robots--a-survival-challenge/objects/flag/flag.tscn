@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd0iigx4fdy4c"]
+
+[ext_resource type="Texture2D" uid="uid://bsnectvtsf0vd" path="res://objects/flag/flag-removebg-preview.png" id="1_615y5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jgva"]
+size = Vector2(18, 49)
+
+[node name="Flag" type="Node2D"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("1_615y5")
+
+[node name="endLevel2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="endLevel2"]
+shape = SubResource("RectangleShape2D_7jgva")

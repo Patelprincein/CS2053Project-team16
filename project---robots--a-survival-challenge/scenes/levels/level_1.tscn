@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=4 uid="uid://jivcn5sil7wd"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_lyj1o"]
-[ext_resource type="Texture2D" uid="uid://dl7n4qk5wucl" path="res://tilesets/desertTiles.webp" id="2_etpiy"]
+[ext_resource type="Texture2D" uid="uid://dl7n4qk5wucl" path="res://tilesets/level1tilemap.webp" id="2_etpiy"]
 [ext_resource type="Script" path="res://scenes/levels/pause_menu.gd" id="2_kq5di"]
 [ext_resource type="PackedScene" uid="uid://bd0iigx4fdy4c" path="res://objects/flag/flag.tscn" id="3_x2e42"]
 [ext_resource type="PackedScene" uid="uid://c2srbxugapvy8" path="res://enemies/enemy_patrol_1.tscn" id="4_a4img"]

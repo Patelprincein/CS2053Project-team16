@@ -440,3 +440,8 @@ rotation = 0.101977
 scale = Vector2(1.08923, 1.37391)
 skew = -0.0129361
 texture = ExtResource("7_6dmi2")
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_11jb3")

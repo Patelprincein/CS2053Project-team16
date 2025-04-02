@@ -1,11 +1,12 @@
-[gd_scene load_steps=15 format=4 uid="uid://dhfe52qnxoa6q"]
+[gd_scene load_steps=16 format=4 uid="uid://dhfe52qnxoa6q"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_4.gd" id="1_m1b8e"]
 [ext_resource type="Script" path="res://scenes/levels/pause_menu.gd" id="2_eovft"]
-[ext_resource type="Texture2D" uid="uid://bhww7kcegjw7s" path="res://3-4.webp" id="2_o4wfd"]
-[ext_resource type="Texture2D" uid="uid://lu5wlgoeoex6" path="res://ob.png" id="3_8eoqy"]
-[ext_resource type="FontFile" uid="uid://cu76e226rahm5" path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="4_h4em2"]
-[ext_resource type="FontFile" uid="uid://dqoka5moywe8m" path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="5_8l7dq"]
+[ext_resource type="Texture2D" uid="uid://cdqht75ve3aal" path="res://tilesets/level3tilemap1.webp" id="2_o4wfd"]
+[ext_resource type="Texture2D" uid="uid://bv5caj56xn6ol" path="res://tilesets/level3tilemap.webp" id="3_8eoqy"]
+[ext_resource type="FontFile" uid="uid://dmaikfuqs8v03" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="4_h4em2"]
+[ext_resource type="FontFile" uid="uid://8oo7yomg8cqn" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="5_8l7dq"]
+[ext_resource type="PackedScene" uid="uid://bcp6xrutwmwbr" path="res://player/scenes/player.tscn" id="7_era0n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7giri"]
 texture = ExtResource("2_o4wfd")
@@ -217,6 +218,7 @@ text = "Hurry! Defeat the enemy before we freeze!"
 label_settings = SubResource("LabelSettings_2sgfp")
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("2_eovft")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
@@ -245,3 +247,6 @@ text = "Restart"
 [node name="MenuButton" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
 text = "Menu"
+
+[node name="Player" parent="." instance=ExtResource("7_era0n")]
+position = Vector2(51, 398)

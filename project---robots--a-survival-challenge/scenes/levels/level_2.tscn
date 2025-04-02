@@ -1,11 +1,12 @@
-[gd_scene load_steps=15 format=4 uid="uid://cwk5jbitlbef4"]
+[gd_scene load_steps=16 format=4 uid="uid://cwk5jbitlbef4"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_2.gd" id="1_avs24"]
-[ext_resource type="Texture2D" uid="uid://dk1m0blkp6bk8" path="res://2.webp" id="2_75ejc"]
+[ext_resource type="Texture2D" uid="uid://qy7xumxxcrlm" path="res://tilesets/level2tilemap.webp" id="2_75ejc"]
 [ext_resource type="Script" path="res://scenes/levels/pause_menu.gd" id="2_yp0v3"]
-[ext_resource type="Texture2D" uid="uid://lu5wlgoeoex6" path="res://ob.png" id="3_bfsux"]
-[ext_resource type="FontFile" uid="uid://cu76e226rahm5" path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="4_8rxeu"]
-[ext_resource type="FontFile" uid="uid://dqoka5moywe8m" path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="5_04y1t"]
+[ext_resource type="Texture2D" uid="uid://dxe72t5rxlw4q" path="res://tilesets/level2decoration.png" id="3_bfsux"]
+[ext_resource type="FontFile" uid="uid://dmaikfuqs8v03" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="4_8rxeu"]
+[ext_resource type="FontFile" uid="uid://8oo7yomg8cqn" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="5_04y1t"]
+[ext_resource type="PackedScene" uid="uid://bcp6xrutwmwbr" path="res://player/scenes/player.tscn" id="7_7u3jh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_abc5c"]
 texture = ExtResource("2_75ejc")
@@ -174,6 +175,7 @@ text = "There's a danger in this forest, using the <insert> key, defeat the thre
 label_settings = SubResource("LabelSettings_c1dv8")
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("2_yp0v3")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
@@ -202,3 +204,6 @@ text = "Restart"
 [node name="MenuButton" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
 text = "Menu"
+
+[node name="Player" parent="." instance=ExtResource("7_7u3jh")]
+position = Vector2(47, 451)

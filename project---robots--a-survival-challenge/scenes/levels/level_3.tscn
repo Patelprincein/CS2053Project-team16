@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=4 uid="uid://0op0bb3uwe4j"]
+[gd_scene load_steps=14 format=4 uid="uid://0op0bb3uwe4j"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_3.gd" id="1_jgaqi"]
 [ext_resource type="Script" path="res://scenes/levels/pause_menu.gd" id="2_tsaan"]
-[ext_resource type="Texture2D" uid="uid://bhww7kcegjw7s" path="res://3-4.webp" id="2_y22f4"]
-[ext_resource type="Texture2D" uid="uid://b0xnhecmm2iye" path="res://55.webp" id="3_1036l"]
-[ext_resource type="FontFile" uid="uid://cu76e226rahm5" path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="4_lkypg"]
-[ext_resource type="FontFile" uid="uid://dqoka5moywe8m" path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="5_dfn33"]
+[ext_resource type="Texture2D" uid="uid://cdqht75ve3aal" path="res://tilesets/level3tilemap1.webp" id="2_y22f4"]
+[ext_resource type="Texture2D" uid="uid://bv5caj56xn6ol" path="res://tilesets/level3tilemap.webp" id="3_1036l"]
+[ext_resource type="FontFile" uid="uid://dmaikfuqs8v03" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="4_lkypg"]
+[ext_resource type="FontFile" uid="uid://8oo7yomg8cqn" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="5_dfn33"]
+[ext_resource type="PackedScene" uid="uid://bcp6xrutwmwbr" path="res://player/scenes/player.tscn" id="7_kl2nb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sr7x2"]
 texture = ExtResource("2_y22f4")
@@ -112,6 +113,7 @@ text = "The beach is swarmed with the enemy! Defeat them to complete the objecti
 label_settings = SubResource("LabelSettings_yefsb")
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("2_tsaan")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
@@ -140,3 +142,6 @@ text = "Restart"
 [node name="MenuButton" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
 text = "Menu"
+
+[node name="Player" parent="." instance=ExtResource("7_kl2nb")]
+position = Vector2(55, 232)

@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=4 uid="uid://k7b06irbap3"]
 
-[ext_resource type="Texture2D" uid="uid://ypuyvo5e5bko" path="res://space.webp" id="1_o8ka1"]
+[ext_resource type="Texture2D" uid="uid://cgnp5tu6sj64l" path="res://tilesets/space.webp" id="1_o8ka1"]
 [ext_resource type="Script" path="res://scenes/levels/level_5.gd" id="1_s0lee"]
 [ext_resource type="Script" path="res://scenes/levels/pause_menu.gd" id="2_8bf0n"]
-[ext_resource type="Texture2D" uid="uid://lu5wlgoeoex6" path="res://ob.png" id="2_m6qm4"]
-[ext_resource type="FontFile" uid="uid://cu76e226rahm5" path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="3_wr322"]
-[ext_resource type="FontFile" uid="uid://dqoka5moywe8m" path="res://Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="4_e50kp"]
+[ext_resource type="Texture2D" uid="uid://crb21f08e42tn" path="res://tilesets/level4decoration.png" id="2_m6qm4"]
+[ext_resource type="FontFile" uid="uid://dmaikfuqs8v03" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="3_wr322"]
+[ext_resource type="FontFile" uid="uid://8oo7yomg8cqn" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="4_e50kp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwdpe"]
 texture = ExtResource("1_o8ka1")

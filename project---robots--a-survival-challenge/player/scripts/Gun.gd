@@ -29,16 +29,9 @@ func _fire_bullet() -> void:
 	if bullet_scene == null:
 		print("Error: Bullet scene not assigned!")
 		return
-
-	# Instantiate the bullet using the Godot 4 method (instantiate()).
+		
 	var bullet = bullet_scene.instantiate()
-	
-	# Set the bullet's starting position to the gun's global position.
 	bullet.position = global_position
-	
-	# Set the bullet's direction based on the gun's rotation.
-	# This assumes your bullet script uses a 'direction' property.
 	bullet.direction = Vector2.RIGHT.rotated(global_rotation)
 	
-	# Add the bullet to the current scene.
 	get_tree().current_scene.add_child(bullet)

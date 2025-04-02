@@ -2,18 +2,16 @@ extends CharacterBody2D
 
 var speed: int = 70
 var patrolling: bool = true
-var raycast_length: float = 100.0
+var raycast_length: float = 200.0
 
 var bullet_scene = preload("res://enemies/enemy_bullet.tscn")
 
 @export var player: CharacterBody2D
-var player_body
 @export var health: int = 10
 
 @onready var pathfollow: PathFollow2D = get_parent()
 
 func _ready() -> void:
-	player_body = player.get_child(0)
 	$HealthBar.max_value = health
 	$HealthBar.value = health
 
@@ -35,7 +33,7 @@ func patrol(delta):
 
 # Raycast a ray to the player
 func check_if_sees_player():
-	var direction = (player_body.global_position - global_position).normalized()
+	var direction = (player.global_position - global_position).normalized()
 	$RayCast2D.target_position = direction * raycast_length
 	
 	patrolling = true
@@ -52,7 +50,7 @@ func check_if_sees_player():
 func shoot():
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = position
-	bullet.direction = (player_body.global_position - global_position).normalized()
+	bullet.direction = (player.global_position - global_position).normalized()
 	get_parent().add_child(bullet)
 
 # Ouch

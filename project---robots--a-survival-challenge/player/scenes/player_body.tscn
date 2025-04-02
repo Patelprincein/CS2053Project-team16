@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3qr5h0jtkre8"]
+[gd_scene load_steps=15 format=3 uid="uid://d3qr5h0jtkre8"]
 
+[ext_resource type="Script" path="res://player/scenes/player_body.gd" id="1_abtd4"]
 [ext_resource type="Texture2D" uid="uid://kkucg2ul52x3" path="res://player/visuals/Chest.png" id="1_f0het"]
 [ext_resource type="Texture2D" uid="uid://cp0l0s04ibddd" path="res://player/visuals/head.png" id="2_gda68"]
 [ext_resource type="Texture2D" uid="uid://3awywf7hs1sc" path="res://player/visuals/hand.png" id="5_5urws"]
 [ext_resource type="Texture2D" uid="uid://dnwsyel37m1ra" path="res://player/visuals/leg.png" id="6_3w4la"]
+[ext_resource type="PackedScene" uid="uid://bd4qkqjxvrcr1" path="res://player/scenes/left_arm.tscn" id="6_tvylm"]
 [ext_resource type="Texture2D" uid="uid://8rgsjhfnt2ky" path="res://player/visuals/jet-pack.png" id="7_6dmi2"]
+[ext_resource type="PackedScene" uid="uid://tcdyq4u1xssu" path="res://player/scenes/gun.tscn" id="7_v1go5"]
 
 [sub_resource type="Animation" id="Animation_r51kf"]
 resource_name = "Fly"
@@ -369,6 +372,7 @@ _data = {
 size = Vector2(40.5, 129.5)
 
 [node name="Player-Body" type="CharacterBody2D"]
+script = ExtResource("1_abtd4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -441,7 +445,19 @@ scale = Vector2(1.08923, 1.37391)
 skew = -0.0129361
 texture = ExtResource("7_6dmi2")
 
+[node name="Left_arm" parent="Body" instance=ExtResource("6_tvylm")]
+z_index = 3
+position = Vector2(-3, -1.8)
+scale = Vector2(0.15, 0.15)
+
+[node name="Gun" parent="Body/Left_arm" instance=ExtResource("7_v1go5")]
+z_index = -1
+position = Vector2(102.667, 3.66667)
+scale = Vector2(0.84, 0.84)
+
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_11jb3")
+
+[connection signal="body_entered" from="Body/Left_arm/Gun" to="Body/Left_arm/Gun" method="_on_body_entered"]

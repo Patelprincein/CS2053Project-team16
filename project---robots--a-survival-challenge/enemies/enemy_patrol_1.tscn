@@ -108,6 +108,7 @@ target_position = Vector2(-100, 0)
 shape = SubResource("RectangleShape2D_gbd22")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xg5ct")
 animation = &"idle"
 

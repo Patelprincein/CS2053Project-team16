@@ -37,11 +37,6 @@ func _physics_process(delta: float) -> void:
 func patrol(delta):
 	velocity = Vector2.ZERO
 	pathfollow.progress += speed * delta
-	if pathfollow.progress_ratio >= 0.5:
-		$AnimatedSprite2D.play("left")
-	else:
-		$AnimatedSprite2D.play("right")
-	
 	global_position = pathfollow.global_position
 
 
@@ -57,7 +52,6 @@ func check_if_sees_player():
 		if collider and collider.is_in_group("player"):
 			patrolling = false
 			seePlayer = true
-			$AnimatedSprite2D.play("idle")
 			return
 	
 	seePlayer = false
@@ -133,4 +127,4 @@ func _on_bullet_timer_timeout() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("playerBullet"):
 		got_hit()
-		area.get_parent().queue_free()
+		area.queue_free()

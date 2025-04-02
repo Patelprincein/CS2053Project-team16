@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://enemies/enemy_bullet.gd" id="1_60iq8"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qabr6"]
-size = Vector2(5, 1)
+size = Vector2(10, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3d5e"]
 size = Vector2(5, 1)

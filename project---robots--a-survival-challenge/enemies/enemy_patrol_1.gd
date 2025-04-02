@@ -2,11 +2,11 @@ extends CharacterBody2D
 
 var speed: int = 70
 var patrolling: bool = true
-var raycast_length: float = 100.0
+var raycast_length: float = 200.0
 
 var bullet_scene = preload("res://enemies/enemy_bullet.tscn")
 
-@export var player: Node2D
+@export var player: CharacterBody2D
 @export var health: int = 10
 
 @onready var pathfollow: PathFollow2D = get_parent()

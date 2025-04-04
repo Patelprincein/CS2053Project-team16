@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const speed = 100
-const GRAVITY = 300  # Gravity
+const GRAVITY = 250  # Gravity
 const fly_speed = 500
 const JUMP_FORCE = 200
 
@@ -26,20 +26,23 @@ func _process(delta):
 func _physics_process(delta: float) -> void:
 	
 	velocity.x = 0
-	
-	# Moving Left ([LEFT]/[A])
+
+	if (((left_arm.rotation_degrees < -90 && left_arm.rotation_degrees > -180) || (left_arm.rotation_degrees < 180 && left_arm.rotation_degrees > 90)) && ((get_global_mouse_position().x - left_arm.global_position.x) < 0)):
+		$Body.scale.x = -$Body.scale.x
+	if (((left_arm.rotation_degrees < -90 && left_arm.rotation_degrees > -180) || (left_arm.rotation_degrees < 180 && left_arm.rotation_degrees > 90)) && ((get_global_mouse_position().x - left_arm.global_position.x) > 0)):
+		$Body.scale.x = -$Body.scale.x
 	if Input.is_action_pressed("left"):
 		velocity.x = -speed
 		$AnimationPlayer.play("walk")
-		if $Body.scale.x > 0:
-			$Body.scale.x = -body_scale_x
+		#if $Body.scale.x > 0:
+		#	$Body.scale.x = -body_scale_x
 	
 	# Moving Right ([RIGHT]/[D])
 	if Input.is_action_pressed("right"):
 		velocity.x = speed
 		$AnimationPlayer.play("walk")
-		if $Body.scale.x < 0:
-			$Body.scale.x = body_scale_x
+		#if $Body.scale.x < 0:
+		#	$Body.scale.x = body_scale_x
 	
 	# Not Moving
 	if not Input.is_action_pressed("right") and not Input.is_action_pressed("left"):

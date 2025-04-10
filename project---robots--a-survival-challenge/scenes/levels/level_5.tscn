@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://k7b06irbap3"]
+[gd_scene load_steps=15 format=4 uid="uid://k7b06irbap3"]
 
 [ext_resource type="Texture2D" uid="uid://cgnp5tu6sj64l" path="res://tilesets/space.webp" id="1_o8ka1"]
 [ext_resource type="Script" path="res://scenes/levels/level_5.gd" id="1_s0lee"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://crb21f08e42tn" path="res://tilesets/level4decoration.png" id="2_m6qm4"]
 [ext_resource type="FontFile" uid="uid://dmaikfuqs8v03" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="3_wr322"]
 [ext_resource type="FontFile" uid="uid://8oo7yomg8cqn" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="4_e50kp"]
+[ext_resource type="PackedScene" uid="uid://d3qr5h0jtkre8" path="res://player/scenes/player_body.tscn" id="7_72cup"]
+[ext_resource type="Script" path="res://player/scripts/player_body_5&6.gd" id="8_cbybl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwdpe"]
 texture = ExtResource("1_o8ka1")
@@ -162,3 +164,8 @@ text = "Restart"
 [node name="MenuButton" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
 text = "Menu"
+
+[node name="Player-Body" parent="." instance=ExtResource("7_72cup")]
+position = Vector2(65, 567)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("8_cbybl")

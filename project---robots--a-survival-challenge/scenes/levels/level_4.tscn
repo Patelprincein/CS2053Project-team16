@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bv5caj56xn6ol" path="res://tilesets/level3tilemap.webp" id="3_8eoqy"]
 [ext_resource type="FontFile" uid="uid://dmaikfuqs8v03" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="4_h4em2"]
 [ext_resource type="FontFile" uid="uid://8oo7yomg8cqn" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="5_8l7dq"]
-[ext_resource type="PackedScene" uid="uid://bcp6xrutwmwbr" path="res://player/scenes/player.tscn" id="7_era0n"]
+[ext_resource type="PackedScene" uid="uid://d3qr5h0jtkre8" path="res://player/scenes/player_body.tscn" id="7_jpc5f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7giri"]
 texture = ExtResource("2_o4wfd")
@@ -14,34 +14,49 @@ margins = Vector2i(0, 11)
 separation = Vector2i(1, 1)
 1:7/0 = 0
 1:7/0/z_index = 1
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:7/0 = 0
 2:7/0/z_index = 1
+2:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:7/0 = 0
 3:7/0/z_index = 1
+3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:8/0 = 0
 3:8/0/z_index = 1
+3:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:8/0 = 0
 2:8/0/z_index = 1
+2:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:9/0 = 0
 2:9/0/z_index = 1
+2:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:9/0 = 0
 1:9/0/z_index = 1
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:8/0 = 0
 1:8/0/z_index = 1
+1:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:9/0 = 0
 3:9/0/z_index = 1
+3:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:8/0 = 0
 4:8/0/z_index = 1
+4:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:8/0 = 0
 5:8/0/z_index = 1
+5:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:5/0 = 0
 7:5/0/z_index = 1
+7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:5/0 = 0
 8:5/0/z_index = 1
+8:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:5/0 = 0
 9:5/0/z_index = 1
+9:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_iyy8l"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7giri")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dmbis"]
@@ -248,5 +263,4 @@ text = "Restart"
 layout_mode = 2
 text = "Menu"
 
-[node name="Player" parent="." instance=ExtResource("7_era0n")]
-position = Vector2(51, 398)
+[node name="Player-Body" parent="." instance=ExtResource("7_jpc5f")]

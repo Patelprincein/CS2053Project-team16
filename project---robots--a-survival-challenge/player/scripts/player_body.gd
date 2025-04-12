@@ -75,3 +75,8 @@ func _input(event):
 	# Fire ([LEFT_MOUSE_CLICK])
 	if event.is_action_pressed("shoot"):
 		$Body/Left_arm/Gun._fire_bullet()
+
+
+func _on_end_level_2_body_entered(body: Node2D) -> void:
+	if body.name == "Player-Body":  # make sure it's the player triggering the level change
+		get_tree().change_scene_to_file("res://scenes/levels/level_2.tscn")

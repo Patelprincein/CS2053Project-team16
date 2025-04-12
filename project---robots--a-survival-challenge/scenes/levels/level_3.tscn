@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://0op0bb3uwe4j"]
+[gd_scene load_steps=15 format=4 uid="uid://0op0bb3uwe4j"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_3.gd" id="1_jgaqi"]
 [ext_resource type="Script" path="res://scenes/levels/pause_menu.gd" id="2_tsaan"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://dmaikfuqs8v03" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="4_lkypg"]
 [ext_resource type="FontFile" uid="uid://8oo7yomg8cqn" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="5_dfn33"]
 [ext_resource type="PackedScene" uid="uid://d3qr5h0jtkre8" path="res://player/scenes/player_body.tscn" id="7_3xtxb"]
+[ext_resource type="Script" path="res://scenes/levels/dialogue.gd" id="7_hm4mk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sr7x2"]
 texture = ExtResource("2_y22f4")
@@ -93,9 +94,12 @@ font = ExtResource("4_lkypg")
 font_color = Color(0, 0, 0, 1)
 outline_size = 4
 
-[sub_resource type="LabelSettings" id="LabelSettings_yefsb"]
-font = ExtResource("5_dfn33")
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qn7oi"]
+bg_color = Color(0, 0, 0, 0.678431)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 
 [node name="level3" type="Node2D"]
 script = ExtResource("1_jgaqi")
@@ -114,18 +118,8 @@ offset_top = 3.0
 offset_right = 248.0
 offset_bottom = 75.0
 text = "Level 3
-Objective: Defeat the robots
-to proceed to the next level."
+"
 label_settings = SubResource("LabelSettings_lrofa")
-
-[node name="Narrative" type="Label" parent="."]
-z_index = 2
-offset_left = 27.0
-offset_top = 598.0
-offset_right = 688.0
-offset_bottom = 621.0
-text = "The beach is swarmed with the enemy! Defeat them to complete the objective."
-label_settings = SubResource("LabelSettings_yefsb")
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 visible = false
@@ -159,3 +153,49 @@ layout_mode = 2
 text = "Menu"
 
 [node name="Player-Body" parent="." instance=ExtResource("7_3xtxb")]
+position = Vector2(61, 179)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogueBox" type="Panel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.293
+anchor_top = 0.258
+anchor_right = 0.68
+anchor_bottom = 0.633
+offset_left = 34.464
+offset_top = 18.816
+offset_right = -0.359985
+offset_bottom = -13.184
+theme_override_styles/panel = SubResource("StyleBoxFlat_qn7oi")
+script = ExtResource("7_hm4mk")
+metadata/_edit_use_anchors_ = true
+
+[node name="DialogueText" type="RichTextLabel" parent="CanvasLayer/DialogueBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.027
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = -38.097
+offset_bottom = -36.0
+theme_override_fonts/normal_font = ExtResource("5_dfn33")
+text = "You found yourself in a beach, and came across more aliens. Defeat them all to move on."
+metadata/_edit_use_anchors_ = true
+
+[node name="StartButton" type="Button" parent="CanvasLayer/DialogueBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 297.0
+offset_top = 170.0
+offset_right = -7.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Click to Start"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/DialogueBox/StartButton" to="CanvasLayer/DialogueBox" method="_on_start_button_pressed"]

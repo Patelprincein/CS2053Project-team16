@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2j1qy3w5tgmn"]
+
+[ext_resource type="Texture2D" uid="uid://b2j1yiwww03ma" path="res://enemies/textures/tempFlyingPatrol3-body.png" id="1_t7j6t"]
+[ext_resource type="Script" path="res://enemies/enemy_flying_3.gd" id="1_xc38f"]
+[ext_resource type="Texture2D" uid="uid://fkfdobabsraa" path="res://enemies/textures/tempFlyingPatrol3-face.png" id="2_vwvwb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxejn"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u1il4"]
+size = Vector2(30, 2)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_skuab"]
+size = Vector2(30, 2)
+
+[node name="enemy_flying_3" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_xc38f")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cxejn")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(-100, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cxejn")
+
+[node name="BulletTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -15.0
+offset_top = -16.0
+offset_right = 15.0
+offset_bottom = -14.0
+max_value = 5.0
+value = 5.0
+texture_under = SubResource("PlaceholderTexture2D_u1il4")
+texture_progress = SubResource("PlaceholderTexture2D_skuab")
+tint_under = Color(0, 0, 0, 0.803922)
+tint_over = Color(0, 0, 0, 1)
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="Body" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_t7j6t")
+
+[node name="Face" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_vwvwb")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]

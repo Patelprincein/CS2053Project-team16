@@ -67,7 +67,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"left",
-"speed": 12.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -84,7 +84,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"right",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7luqv"]
@@ -110,7 +110,7 @@ shape = SubResource("RectangleShape2D_gbd22")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xg5ct")
-animation = &"idle"
+animation = &"left"
 
 [node name="BulletTimer" type="Timer" parent="."]
 wait_time = 0.2

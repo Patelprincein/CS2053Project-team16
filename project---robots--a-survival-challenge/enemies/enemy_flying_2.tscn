@@ -1,0 +1,128 @@
+[gd_scene load_steps=13 format=3 uid="uid://csci6y473q2wg"]
+
+[ext_resource type="Script" path="res://enemies/enemy_flying_2.gd" id="1_3g7lu"]
+[ext_resource type="Texture2D" uid="uid://bxxmpn8r0bof7" path="res://enemies/textures/enemyFlying2-texture.png" id="2_3mrsq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hocr5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bey77"]
+atlas = ExtResource("2_3mrsq")
+region = Rect2(2, 75, 31, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mellg"]
+atlas = ExtResource("2_3mrsq")
+region = Rect2(33, 75, 31, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bo6h"]
+atlas = ExtResource("2_3mrsq")
+region = Rect2(2, 40, 31, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25kwo"]
+atlas = ExtResource("2_3mrsq")
+region = Rect2(33, 40, 31, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfgq2"]
+atlas = ExtResource("2_3mrsq")
+region = Rect2(2, 5, 31, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rimub"]
+atlas = ExtResource("2_3mrsq")
+region = Rect2(33, 5, 31, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fxm7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bey77")
+}],
+"loop": true,
+"name": &"down-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mellg")
+}],
+"loop": true,
+"name": &"down-right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bo6h")
+}],
+"loop": true,
+"name": &"idle-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25kwo")
+}],
+"loop": true,
+"name": &"idle-right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfgq2")
+}],
+"loop": true,
+"name": &"up-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rimub")
+}],
+"loop": true,
+"name": &"up-right",
+"speed": 5.0
+}]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8e4yu"]
+size = Vector2(30, 2)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vf2km"]
+size = Vector2(30, 2)
+
+[node name="enemy_flying_2" type="CharacterBody2D"]
+script = ExtResource("1_3g7lu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_hocr5")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(-100, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hocr5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_fxm7y")
+animation = &"up-right"
+
+[node name="BulletTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -15.0
+offset_top = -24.0
+offset_right = 15.0
+offset_bottom = -22.0
+max_value = 5.0
+value = 5.0
+texture_under = SubResource("PlaceholderTexture2D_8e4yu")
+texture_progress = SubResource("PlaceholderTexture2D_vf2km")
+tint_under = Color(0, 0, 0, 0.803922)
+tint_over = Color(0, 0, 0, 1)
+tint_progress = Color(1, 0, 0, 1)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]

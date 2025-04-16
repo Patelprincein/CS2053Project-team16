@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://k7b06irbap3"]
+[gd_scene load_steps=18 format=4 uid="uid://k7b06irbap3"]
 
 [ext_resource type="Texture2D" uid="uid://cgnp5tu6sj64l" path="res://tilesets/space.webp" id="1_o8ka1"]
 [ext_resource type="Script" path="res://scenes/levels/level_5.gd" id="1_s0lee"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d3qr5h0jtkre8" path="res://player/scenes/player_body.tscn" id="7_72cup"]
 [ext_resource type="Script" path="res://player/scripts/player_body_5&6.gd" id="8_cbybl"]
 [ext_resource type="Script" path="res://scenes/levels/dialogue.gd" id="8_u3qvk"]
+[ext_resource type="PackedScene" uid="uid://csci6y473q2wg" path="res://enemies/enemy_flying_2.tscn" id="10_2igt5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwdpe"]
 texture = ExtResource("1_o8ka1")
@@ -109,6 +110,12 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
+[sub_resource type="Curve2D" id="Curve2D_m1glj"]
+_data = {
+"points": PackedVector2Array(0, 28.6954, 0, -28.6954, 1258, 207, -57.4035, 0.0280547, 57.4035, -0.0280547, 1337, 147, 0.18379, -36.3803, -0.18379, 36.3803, 1413, 214, 50.9118, 0, -50.9118, 0, 1334, 275, -0.7937, 15.874, 0.7937, -15.874, 1258, 207)
+}
+point_count = 5
+
 [node name="level5" type="Node2D"]
 script = ExtResource("1_s0lee")
 
@@ -130,6 +137,7 @@ text = "Level 5
 label_settings = SubResource("LabelSettings_f1n53")
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("2_8bf0n")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
@@ -159,7 +167,7 @@ text = "Restart"
 layout_mode = 2
 text = "Menu"
 
-[node name="Player-Body" parent="." instance=ExtResource("7_72cup")]
+[node name="Player-Body" parent="." groups=["player"] instance=ExtResource("7_72cup")]
 position = Vector2(65, 567)
 scale = Vector2(0.2, 0.2)
 script = ExtResource("8_cbybl")
@@ -206,5 +214,20 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Click to Start"
 metadata/_edit_use_anchors_ = true
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="flying1" type="Path2D" parent="Enemies"]
+position = Vector2(-600, 9)
+curve = SubResource("Curve2D_m1glj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/flying1"]
+position = Vector2(1258, 207)
+rotation = -0.011299
+progress = 489.358
+rotates = false
+
+[node name="enemy_flying_2" parent="Enemies/flying1/PathFollow2D" node_paths=PackedStringArray("player") instance=ExtResource("10_2igt5")]
+player = NodePath("../../../../Player-Body")
 
 [connection signal="pressed" from="CanvasLayer/DialogueBox/StartButton" to="CanvasLayer/DialogueBox" method="_on_start_button_pressed"]

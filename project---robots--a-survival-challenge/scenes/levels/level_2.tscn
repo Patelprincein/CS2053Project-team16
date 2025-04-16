@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cwk5jbitlbef4"]
+[gd_scene load_steps=19 format=4 uid="uid://cwk5jbitlbef4"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_2.gd" id="1_avs24"]
 [ext_resource type="Texture2D" uid="uid://qy7xumxxcrlm" path="res://tilesets/level2tilemap.webp" id="2_75ejc"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://8oo7yomg8cqn" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="5_04y1t"]
 [ext_resource type="Script" path="res://scenes/levels/dialogue.gd" id="7_r3tht"]
 [ext_resource type="PackedScene" uid="uid://d3qr5h0jtkre8" path="res://player/scenes/player_body.tscn" id="7_yvgq7"]
+[ext_resource type="PackedScene" uid="uid://cp3owc1p3rs7a" path="res://enemies/enemy_patrol_2.tscn" id="9_qkqob"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_abc5c"]
 texture = ExtResource("2_75ejc")
@@ -159,6 +160,12 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
+[sub_resource type="Curve2D" id="Curve2D_6raks"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 853, 318, 0, 0, 0, 0, 1043, 318, 0, 0, 0, 0, 853, 318)
+}
+point_count = 3
+
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_avs24")
 
@@ -260,5 +267,19 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Click to Start"
 metadata/_edit_use_anchors_ = true
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="patrol1" type="Path2D" parent="Enemies"]
+curve = SubResource("Curve2D_6raks")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/patrol1"]
+position = Vector2(853, 318)
+rotation = -0.011299
+progress = 489.358
+rotates = false
+
+[node name="enemy_patrol_2" parent="Enemies/patrol1/PathFollow2D" node_paths=PackedStringArray("player") instance=ExtResource("9_qkqob")]
+player = NodePath("../../../../Player-Body")
 
 [connection signal="pressed" from="CanvasLayer/DialogueBox/StartButton" to="CanvasLayer/DialogueBox" method="_on_start_button_pressed"]

@@ -380,7 +380,7 @@ libraries = {
 "": SubResource("AnimationLibrary_lhihf")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 shape = SubResource("RectangleShape2D_11jb3")
 
 [node name="Body" type="Node2D" parent="."]
@@ -458,7 +458,7 @@ scale = Vector2(0.84, 0.84)
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["player"]]
 shape = SubResource("RectangleShape2D_11jb3")
 
 [connection signal="body_entered" from="Body/Left_arm/Gun" to="Body/Left_arm/Gun" method="_on_body_entered"]

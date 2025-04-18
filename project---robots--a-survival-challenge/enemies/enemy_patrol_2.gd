@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
+signal caught
+
 var speed: int = 140
 var seePlayer: bool = false
 var raycast_length: float = 500.0
 
 var bullet_scene = preload("res://enemies/enemy_bullet.tscn")
+var score_label
 
 @export var player: CharacterBody2D
 @export var health: int = 10
@@ -18,6 +21,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	patrol(delta)
 	check_if_sees_player()
+	score_label = get_parent().get_parent().get_parent().get_parent().get_node("Camera2D").get_node("ScoreLabel")
 
 
 # Patrol around the Path2D line
@@ -56,7 +60,12 @@ func got_hit():
 	health -= 1
 	$HealthBar.value = health
 	if health <= 0:
+		add_score()
 		queue_free()
+
+func add_score():
+	print("aa")
+	score_label.enemy_killed()
 
 
 func _on_bullet_timer_timeout() -> void:
@@ -68,3 +77,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("playerBullet"):
 		got_hit()
 		area.queue_free()
+		
+
+func catch():
+	caught.emit()
+	queue_free()

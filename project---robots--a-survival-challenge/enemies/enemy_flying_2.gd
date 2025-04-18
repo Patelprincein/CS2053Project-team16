@@ -8,6 +8,7 @@ var raycast_length: float = 300.0
 var last_pos: Vector2
 
 var bullet_scene = preload("res://enemies/enemy_bullet.tscn")
+var score_label
 
 @export var player: Node2D
 @export var health: int = 5
@@ -17,6 +18,7 @@ var bullet_scene = preload("res://enemies/enemy_bullet.tscn")
 func _ready() -> void:
 	$HealthBar.max_value = health
 	$HealthBar.value = health
+	score_label = get_parent().get_parent().get_parent().get_parent().get_node("Camera2D").get_node("ScoreLabel")
 
 
 func _physics_process(delta: float) -> void:
@@ -113,7 +115,12 @@ func got_hit():
 	health -= 1
 	$HealthBar.value = health
 	if health <= 0:
+		add_score()
 		queue_free()
+
+func add_score():
+	print("aa")
+	score_label.enemy_killed()
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -124,4 +131,5 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func explode():
 	print("bim bam boum")
+	score_label.enemy_killed()
 	queue_free()

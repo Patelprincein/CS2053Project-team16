@@ -7,7 +7,7 @@ extends Node2D
 
 func _process(delta: float) -> void:
 	position += direction * speed * delta
-	
-	# Destroy when off-screen
-	if not get_viewport_rect().has_point(global_position):
-		queue_free()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()

@@ -7,11 +7,6 @@ func _ready() -> void:
 	print("level5")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_end_of_level_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+func _on_end_level_2_body_entered(body: Node2D) -> void:
+	if body.name == "Player-Body" and body.can_end:
 		get_tree().change_scene_to_file(NEXT_LEVEL)

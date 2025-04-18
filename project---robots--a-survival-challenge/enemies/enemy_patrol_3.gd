@@ -5,6 +5,7 @@ var seePlayer: bool = false
 var raycast_length: float = 500.0
 
 var bullet_scene = preload("res://enemies/enemy_bullet.tscn")
+var score_label
 
 @export var player: CharacterBody2D
 @export var health: int = 10
@@ -14,6 +15,8 @@ var bullet_scene = preload("res://enemies/enemy_bullet.tscn")
 func _ready() -> void:
 	$HealthBar.max_value = health
 	$HealthBar.value = health
+	score_label = get_parent().get_parent().get_parent().get_parent().get_node("Camera2D").get_node("ScoreLabel")
+
 
 func _physics_process(delta: float) -> void:
 	if seePlayer:
@@ -59,7 +62,12 @@ func got_hit():
 	health -= 1
 	$HealthBar.value = health
 	if health <= 0:
+		add_score()
 		queue_free()
+
+func add_score():
+	print("aa")
+	score_label.enemy_killed()
 
 
 func _on_bullet_timer_timeout() -> void:

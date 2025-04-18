@@ -101,15 +101,12 @@ func got_hit():
 		queue_free()
 
 func add_score():
-	print("aa")
 	score_label.enemy_killed()
-
 
 
 func _on_bullet_timer_timeout() -> void:
 	if seePlayer:
 		shoot()
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("playerBullet"):

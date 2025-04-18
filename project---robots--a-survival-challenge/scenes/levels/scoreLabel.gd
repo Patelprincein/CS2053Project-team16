@@ -11,5 +11,3 @@ func _ready() -> void:
 func enemy_killed() -> void:
 	score1 += 1
 	text = "Enemy left: %s" % (MAX_SCORE1 - score1)
-	if score1 == MAX_SCORE1:
-		player.can_end = true

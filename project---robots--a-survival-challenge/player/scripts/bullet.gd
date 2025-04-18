@@ -8,6 +8,7 @@ func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
 	
 
+@warning_ignore("unused_parameter")
 func _on_Bullet_body_entered(body: Node) -> void:
 	queue_free()
 

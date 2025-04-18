@@ -64,7 +64,6 @@ func got_hit():
 		queue_free()
 
 func add_score():
-	print("aa")
 	score_label.enemy_killed()
 
 

@@ -310,6 +310,7 @@ text = "Restart"
 layout_mode = 2
 text = "Menu"
 
+
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
 [node name="DialogueBox" type="Panel" parent="Camera2D/CanvasLayer" node_paths=PackedStringArray("player")]

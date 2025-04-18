@@ -176,11 +176,13 @@ player = NodePath("../../../../Player-Body")
 [node name="patrol2" type="Path2D" parent="Enemies"]
 curve = SubResource("Curve2D_v3j6l")
 
+
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/patrol2"]
 position = Vector2(1334.64, 205)
 rotation = -0.011299
 progress = 489.358
 rotates = false
+
 
 [node name="enemy_patrol_2" parent="Enemies/patrol2/PathFollow2D" node_paths=PackedStringArray("player") instance=ExtResource("9_arpga")]
 player = NodePath("../../../../Player-Body")

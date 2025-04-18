@@ -8,15 +8,15 @@
 [ext_resource type="FontFile" uid="uid://dmaikfuqs8v03" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="3_wr322"]
 [ext_resource type="FontFile" uid="uid://8oo7yomg8cqn" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="4_e50kp"]
 [ext_resource type="PackedScene" uid="uid://d3qr5h0jtkre8" path="res://player/scenes/player_body.tscn" id="7_72cup"]
-[ext_resource type="PackedScene" uid="uid://d2j1qy3w5tgmn" path="res://enemies/enemy_flying_3.tscn" id="7_yl615"]
+[ext_resource type="PackedScene" uid="uid://d2j1qy3w5tgmn" path="res://enemies/Scenes/enemy_flying_3.tscn" id="7_yl615"]
 [ext_resource type="Script" path="res://scenes/levels/dialogue.gd" id="8_u3qvk"]
-[ext_resource type="PackedScene" uid="uid://bqacd6yecqgqv" path="res://enemies/enemy_flying_1.tscn" id="8_vlefw"]
-[ext_resource type="PackedScene" uid="uid://csci6y473q2wg" path="res://enemies/enemy_flying_2.tscn" id="10_2igt5"]
+[ext_resource type="PackedScene" uid="uid://bqacd6yecqgqv" path="res://enemies/Scenes/enemy_flying_1.tscn" id="8_vlefw"]
+[ext_resource type="PackedScene" uid="uid://csci6y473q2wg" path="res://enemies/Scenes/enemy_flying_2.tscn" id="10_2igt5"]
 [ext_resource type="Script" path="res://scenes/levels/main_camera.gd" id="11_uwxmb"]
 [ext_resource type="Script" path="res://scenes/levels/scoreLabel.gd" id="12_lle4o"]
 [ext_resource type="Texture2D" uid="uid://bsnectvtsf0vd" path="res://objects/flag/flag-removebg-preview.png" id="15_quyc6"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwdpe"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1r1xk"]
 texture = ExtResource("1_o8ka1")
 margins = Vector2i(0, 11)
 separation = Vector2i(1, 1)
@@ -51,9 +51,9 @@ separation = Vector2i(1, 1)
 4:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_jcnp5"]
-sources/0 = SubResource("TileSetAtlasSource_xwdpe")
+sources/0 = SubResource("TileSetAtlasSource_1r1xk")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_isapj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d44t3"]
 texture = ExtResource("3_rho1d")
 margins = Vector2i(0, 11)
 separation = Vector2i(1, 1)
@@ -102,7 +102,7 @@ separation = Vector2i(1, 1)
 
 [sub_resource type="TileSet" id="TileSet_geabv"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_isapj")
+sources/0 = SubResource("TileSetAtlasSource_d44t3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avbnt"]
 texture = ExtResource("2_m6qm4")

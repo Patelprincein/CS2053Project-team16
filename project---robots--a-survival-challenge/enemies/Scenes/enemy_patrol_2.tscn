@@ -1,45 +1,45 @@
 [gd_scene load_steps=16 format=3 uid="uid://cp3owc1p3rs7a"]
 
-[ext_resource type="Texture2D" uid="uid://44bmaywnqexe" path="res://enemies/textures/tempEnemyPatrol2.png" id="1_ncybw"]
-[ext_resource type="Script" path="res://enemies/enemy_patrol_2.gd" id="1_sfl40"]
+[ext_resource type="Script" path="res://enemies/Scripts/enemy_patrol_2.gd" id="1_n630t"]
+[ext_resource type="Texture2D" uid="uid://44bmaywnqexe" path="res://enemies/textures/tempEnemyPatrol2.png" id="2_e2nwh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyrve"]
 size = Vector2(20, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rxf1o"]
-atlas = ExtResource("1_ncybw")
+atlas = ExtResource("2_e2nwh")
 region = Rect2(0, 0, 24, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jl4l0"]
-atlas = ExtResource("1_ncybw")
+atlas = ExtResource("2_e2nwh")
 region = Rect2(0, 0, 24, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iw8ra"]
-atlas = ExtResource("1_ncybw")
+atlas = ExtResource("2_e2nwh")
 region = Rect2(24, 0, 24, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f6wt0"]
-atlas = ExtResource("1_ncybw")
+atlas = ExtResource("2_e2nwh")
 region = Rect2(48, 0, 24, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jaxwa"]
-atlas = ExtResource("1_ncybw")
+atlas = ExtResource("2_e2nwh")
 region = Rect2(0, 40, 24, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdwvv"]
-atlas = ExtResource("1_ncybw")
+atlas = ExtResource("2_e2nwh")
 region = Rect2(0, 0, 24, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mvlpl"]
-atlas = ExtResource("1_ncybw")
+atlas = ExtResource("2_e2nwh")
 region = Rect2(24, 0, 24, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ewlnn"]
-atlas = ExtResource("1_ncybw")
+atlas = ExtResource("2_e2nwh")
 region = Rect2(48, 0, 24, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o0px6"]
-atlas = ExtResource("1_ncybw")
+atlas = ExtResource("2_e2nwh")
 region = Rect2(0, 40, 24, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pvwpo"]
@@ -94,7 +94,7 @@ size = Vector2(30, 2)
 size = Vector2(30, 2)
 
 [node name="enemy_patrol_2" type="CharacterBody2D"]
-script = ExtResource("1_sfl40")
+script = ExtResource("1_n630t")
 
 [node name="Area2D" type="Area2D" parent="."]
 

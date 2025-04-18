@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://level_1.gd" id="1_lyj1o"]
 [ext_resource type="Texture2D" uid="uid://dl7n4qk5wucl" path="res://tilesets/level1tilemap.webp" id="2_etpiy"]
 [ext_resource type="Script" path="res://scenes/levels/pause_menu.gd" id="2_kq5di"]
-[ext_resource type="PackedScene" uid="uid://c2srbxugapvy8" path="res://enemies/enemy_patrol_1.tscn" id="4_a4img"]
+[ext_resource type="PackedScene" uid="uid://c2srbxugapvy8" path="res://enemies/Scenes/enemy_patrol_1.tscn" id="4_a4img"]
 [ext_resource type="FontFile" uid="uid://dmaikfuqs8v03" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/cmu-typewriter/Typewriter/cmuntb.ttf" id="5_m6sld"]
 [ext_resource type="FontFile" uid="uid://8oo7yomg8cqn" path="res://fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="6_0koxy"]
 [ext_resource type="PackedScene" uid="uid://d3qr5h0jtkre8" path="res://player/scenes/player_body.tscn" id="9_u6ucp"]

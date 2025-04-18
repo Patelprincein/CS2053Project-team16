@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmmwl0yhebhuf"]
+
+[ext_resource type="Texture2D" uid="uid://dq2fu4tmhjypk" path="res://enemies/textures/Spaceship(1).png" id="1_8labl"]
+[ext_resource type="Script" path="res://enemies/Scenes/enemy_boss.gd" id="1_f47sm"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wvbgj"]
+size = Vector2(30, 2)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sojij"]
+size = Vector2(30, 2)
+
+[node name="enemy_boss" type="CharacterBody2D"]
+script = ExtResource("1_f47sm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+rotation = 1.74533
+polygon = PackedVector2Array(0, -44, 13, -22, 15, -8, 20, -25, 48, 5, 53, 4, 55, 9, 51, 14, 56, 35, 29, 13, 15, 29, 16, 14, 10, 21, 8, 30, 4, 34, 0, 44, -3, 34, -8, 30, -11, 20, -16, 14, -15, 28, -30, 13, -55, 35, -51, 13, -55, 10, -53, 5, -47, 5, -38, -7, -21, -25, -18, -6, -14, -2, -15, -7, -11, -25)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.74533
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_8labl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 1.74533
+polygon = PackedVector2Array(0, -44, 13, -22, 15, -8, 20, -25, 48, 5, 53, 4, 55, 9, 51, 14, 56, 35, 29, 13, 15, 29, 16, 14, 10, 21, 8, 30, 4, 34, 0, 44, -3, 34, -8, 30, -11, 20, -16, 14, -15, 28, -30, 13, -55, 35, -51, 13, -55, 10, -53, 5, -47, 5, -38, -7, -21, -25, -18, -6, -14, -2, -15, -7, -11, -25)
+
+[node name="left_fire" type="Marker2D" parent="."]
+position = Vector2(27, -16)
+
+[node name="right_fire" type="Marker2D" parent="."]
+position = Vector2(20, 24)
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 55.0
+offset_top = -8.0
+offset_right = 85.0
+offset_bottom = -6.0
+rotation = 1.73336
+max_value = 5.0
+value = 5.0
+texture_under = SubResource("PlaceholderTexture2D_wvbgj")
+texture_progress = SubResource("PlaceholderTexture2D_sojij")
+tint_under = Color(0, 0, 0, 0.803922)
+tint_over = Color(0, 0, 0, 1)
+tint_progress = Color(1, 0, 0, 1)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bqacd6yecqgqv"]
 
-[ext_resource type="Script" path="res://enemies/enemy_flying_1.gd" id="1_jjpe6"]
+[ext_resource type="Script" path="res://enemies/Scripts/enemy_flying_1.gd" id="1_jjpe6"]
 [ext_resource type="Texture2D" uid="uid://rcp7b45o6aoj" path="res://enemies/textures/enemyFlying1-texture.png" id="2_8gxmv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64oxg"]

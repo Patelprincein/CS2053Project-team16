@@ -1,25 +1,22 @@
 extends CharacterBody2D
 
 var speed: int = 70
-var attack_speed: int = 140
 var patrolling: bool = true
 var seePlayer: bool = false
 var raycast_length: float = 300.0
 var last_pos: Vector2
 
-var bullet_scene = preload("res://enemies/enemy_bullet.tscn")
+var bullet_scene = preload("res://enemies/Scenes/enemy_bullet.tscn")
 var score_label
 
 @export var player: Node2D
 @export var health: int = 5
 @onready var pathfollow: PathFollow2D = get_parent()
 
-
 func _ready() -> void:
 	$HealthBar.max_value = health
 	$HealthBar.value = health
 	score_label = get_parent().get_parent().get_parent().get_parent().get_node("Camera2D").get_node("ScoreLabel")
-
 
 func _physics_process(delta: float) -> void:
 	last_pos = global_position
@@ -45,11 +42,7 @@ func patrol(delta):
 
 # Raycast a ray to the player
 func check_if_sees_player():
-	var vector_diff = player.global_position - global_position
-	if vector_diff.length() <= 50:
-		explode()
-	
-	var direction = (vector_diff).normalized()
+	var direction = (player.global_position - global_position).normalized()
 	$RayCast2D.target_position = direction * raycast_length
 	
 	
@@ -67,8 +60,15 @@ func check_if_sees_player():
 # Shoot the player
 func shooting_motion():
 	var direction = (player.global_position - global_position).normalized()
-	velocity = direction * attack_speed
+	velocity = direction * speed
 	move_and_slide()
+
+func shoot():
+	var bullet = bullet_scene.instantiate()
+	
+	bullet.global_position = position
+	bullet.direction = (player.global_position - global_position).normalized()
+	get_parent().add_child(bullet)
 
 
 # Return to Path
@@ -122,14 +122,11 @@ func add_score():
 	print("aa")
 	score_label.enemy_killed()
 
+func _on_bullet_timer_timeout() -> void:
+	if seePlayer:
+		shoot()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("playerBullet"):
 		got_hit()
 		area.queue_free()
-
-
-func explode():
-	print("bim bam boum")
-	score_label.enemy_killed()
-	queue_free()

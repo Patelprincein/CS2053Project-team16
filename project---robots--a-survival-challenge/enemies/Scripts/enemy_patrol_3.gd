@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-var speed: int = 70
-var patrolling: bool = true
-var raycast_length: float = 200.0
+var speed: int = 210
+var seePlayer: bool = false
+var raycast_length: float = 500.0
 
-var bullet_scene = preload("res://enemies/enemy_bullet.tscn")
+var bullet_scene = preload("res://enemies/Scenes/enemy_bullet.tscn")
 var score_label
 
 @export var player: CharacterBody2D
@@ -17,9 +17,13 @@ func _ready() -> void:
 	$HealthBar.value = health
 	score_label = get_parent().get_parent().get_parent().get_parent().get_node("Camera2D").get_node("ScoreLabel")
 
+
 func _physics_process(delta: float) -> void:
-	if patrolling:
+	if seePlayer:
 		patrol(delta)
+	else:
+		$AnimatedSprite2D.play("idle")
+	
 	check_if_sees_player()
 
 
@@ -37,14 +41,14 @@ func check_if_sees_player():
 	var direction = (player.global_position - global_position).normalized()
 	$RayCast2D.target_position = direction * raycast_length
 	
-	patrolling = true
+	seePlayer = false
 	
 	if $RayCast2D.is_colliding():
 		var collider = $RayCast2D.get_collider()
 		
 		if collider and collider.is_in_group("player"):
-			patrolling = false
-			$AnimatedSprite2D.play("idle")
+			seePlayer = true
+
 
 # Shoot the player
 func shoot():
@@ -53,7 +57,7 @@ func shoot():
 	bullet.direction = (player.global_position - global_position).normalized()
 	get_parent().add_child(bullet)
 
-# Kill alien
+# Ouch
 func got_hit():
 	health -= 1
 	$HealthBar.value = health
@@ -62,11 +66,14 @@ func got_hit():
 		queue_free()
 
 func add_score():
+	print("aa")
 	score_label.enemy_killed()
 
+
 func _on_bullet_timer_timeout() -> void:
-	if not patrolling:
+	if seePlayer:
 		shoot()
+
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("playerBullet"):

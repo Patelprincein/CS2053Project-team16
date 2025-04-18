@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://ub025uu5dy3l" path="res://tempTileMap.png" id="2_nxrfi"]
 [ext_resource type="Script" path="res://scenes/levels/pause_menu.gd" id="3_mpbb1"]
 [ext_resource type="PackedScene" uid="uid://bfd3yuas8imc3" path="res://enemies/temp_player.tscn" id="4_hwcpa"]
-[ext_resource type="PackedScene" uid="uid://c2srbxugapvy8" path="res://enemies/enemy_patrol_1.tscn" id="5_2oqoq"]
-[ext_resource type="PackedScene" uid="uid://bqacd6yecqgqv" path="res://enemies/enemy_flying_1.tscn" id="6_lefx5"]
-[ext_resource type="PackedScene" uid="uid://bcp6xrutwmwbr" path="res://player/scenes/player.tscn" id="7_f0rjj"]
+[ext_resource type="PackedScene" uid="uid://c2srbxugapvy8" path="res://enemies/Scenes/enemy_patrol_1.tscn" id="5_2oqoq"]
+[ext_resource type="PackedScene" uid="uid://bqacd6yecqgqv" path="res://enemies/Scenes/enemy_flying_1.tscn" id="6_lefx5"]
+[ext_resource type="PackedScene" path="res://player/scenes/player.tscn" id="7_f0rjj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rphgv"]
 texture = ExtResource("2_nxrfi")

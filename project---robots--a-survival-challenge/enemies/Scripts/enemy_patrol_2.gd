@@ -6,7 +6,7 @@ var speed: int = 140
 var seePlayer: bool = false
 var raycast_length: float = 500.0
 
-var bullet_scene = preload("res://enemies/enemy_bullet.tscn")
+var bullet_scene = preload("res://enemies/Scenes/enemy_bullet.tscn")
 var score_label
 
 @export var player: CharacterBody2D

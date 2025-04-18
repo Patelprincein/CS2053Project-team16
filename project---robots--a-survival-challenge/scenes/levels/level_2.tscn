@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bsnectvtsf0vd" path="res://objects/flag/flag-removebg-preview.png" id="7_3cmso"]
 [ext_resource type="Script" path="res://scenes/levels/dialogue.gd" id="7_r3tht"]
 [ext_resource type="PackedScene" uid="uid://d3qr5h0jtkre8" path="res://player/scenes/player_body.tscn" id="7_yvgq7"]
-[ext_resource type="PackedScene" uid="uid://bqacd6yecqgqv" path="res://enemies/enemy_flying_1.tscn" id="9_puofg"]
+[ext_resource type="PackedScene" uid="uid://bqacd6yecqgqv" path="res://enemies/Scenes/enemy_flying_1.tscn" id="9_puofg"]
 [ext_resource type="Script" path="res://scenes/levels/scoreLabel.gd" id="10_g4upj"]
-[ext_resource type="PackedScene" uid="uid://c2srbxugapvy8" path="res://enemies/enemy_patrol_1.tscn" id="10_npwrx"]
+[ext_resource type="PackedScene" uid="uid://c2srbxugapvy8" path="res://enemies/Scenes/enemy_patrol_1.tscn" id="10_npwrx"]
 [ext_resource type="Script" path="res://scenes/levels/main_camera.gd" id="11_gn1w7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_abc5c"]

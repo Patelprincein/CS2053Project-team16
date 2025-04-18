@@ -1,0 +1,127 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmmwl0yhebhuf"]
+
+[ext_resource type="Texture2D" uid="uid://dq2fu4tmhjypk" path="res://enemies/textures/Spaceship(1).png" id="1_8labl"]
+[ext_resource type="Script" path="res://enemies/Scripts/enemy_boss.gd" id="1_yudv8"]
+[ext_resource type="Script" path="res://enemies/Scripts/left_fire.gd" id="3_2lq6i"]
+[ext_resource type="Script" path="res://enemies/Scripts/right_fire.gd" id="4_bf3kl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhkce"]
+size = Vector2(94, 355)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iufgy"]
+size = Vector2(146, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8lns"]
+size = Vector2(145, 174)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhkmo"]
+radius = 45.0
+height = 202.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_thf1r"]
+size = Vector2(30, 2)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ay7ef"]
+size = Vector2(30, 2)
+
+[node name="enemy_boss" type="CharacterBody2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_yudv8")
+health = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8labl")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 1
+position = Vector2(-3, -38.5)
+shape = SubResource("RectangleShape2D_rhkce")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+z_index = 1
+position = Vector2(103, 19)
+shape = SubResource("RectangleShape2D_iufgy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+z_index = 1
+position = Vector2(-108.5, 20)
+shape = SubResource("RectangleShape2D_u8lns")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+z_index = 1
+position = Vector2(-212, 61)
+rotation = 0.680149
+shape = SubResource("CapsuleShape2D_bhkmo")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D"]
+z_index = 1
+position = Vector2(212, 61)
+rotation = -0.680678
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_bhkmo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(-3, -38.5)
+shape = SubResource("RectangleShape2D_rhkce")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(103, 19)
+shape = SubResource("RectangleShape2D_iufgy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(-108.5, 20)
+shape = SubResource("RectangleShape2D_u8lns")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(-212, 61)
+rotation = 0.680149
+shape = SubResource("CapsuleShape2D_bhkmo")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(212, 61)
+rotation = -0.680678
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_bhkmo")
+
+[node name="left_fire" type="Marker2D" parent="."]
+position = Vector2(-111, -106)
+script = ExtResource("3_2lq6i")
+
+[node name="right_fire" type="Marker2D" parent="."]
+position = Vector2(111, -106)
+script = ExtResource("4_bf3kl")
+
+[node name="BulletTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -15.0
+offset_top = -24.0
+offset_right = 15.0
+offset_bottom = -22.0
+max_value = 5.0
+value = 5.0
+texture_under = SubResource("PlaceholderTexture2D_thf1r")
+texture_progress = SubResource("PlaceholderTexture2D_ay7ef")
+tint_under = Color(0, 0, 0, 0.803922)
+tint_over = Color(0, 0, 0, 1)
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -213.333)
+rotation = 1.5708
+target_position = Vector2(-100, 0)

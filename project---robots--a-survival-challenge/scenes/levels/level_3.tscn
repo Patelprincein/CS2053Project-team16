@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://d3qr5h0jtkre8" path="res://player/scenes/player_body.tscn" id="7_3xtxb"]
 [ext_resource type="Texture2D" uid="uid://bsnectvtsf0vd" path="res://objects/flag/flag-removebg-preview.png" id="7_exi43"]
 [ext_resource type="Script" path="res://scenes/levels/dialogue.gd" id="7_hm4mk"]
-[ext_resource type="PackedScene" uid="uid://cp3owc1p3rs7a" path="res://enemies/enemy_patrol_2.tscn" id="9_arpga"]
-[ext_resource type="PackedScene" uid="uid://d2j1qy3w5tgmn" path="res://enemies/enemy_flying_3.tscn" id="10_26u58"]
+[ext_resource type="PackedScene" uid="uid://cp3owc1p3rs7a" path="res://enemies/Scenes/enemy_patrol_2.tscn" id="9_arpga"]
+[ext_resource type="PackedScene" uid="uid://d2j1qy3w5tgmn" path="res://enemies/Scenes/enemy_flying_3.tscn" id="10_26u58"]
 [ext_resource type="Script" path="res://scenes/levels/main_camera.gd" id="10_e47w3"]
 [ext_resource type="Script" path="res://scenes/levels/scoreLabel.gd" id="11_tnq04"]
 

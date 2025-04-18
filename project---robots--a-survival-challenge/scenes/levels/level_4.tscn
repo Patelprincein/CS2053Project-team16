@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bsnectvtsf0vd" path="res://objects/flag/flag-removebg-preview.png" id="5_xvg5y"]
 [ext_resource type="Script" path="res://scenes/levels/dialogue.gd" id="6_g230r"]
 [ext_resource type="PackedScene" uid="uid://d3qr5h0jtkre8" path="res://player/scenes/player_body.tscn" id="7_jpc5f"]
-[ext_resource type="PackedScene" uid="uid://d2j1qy3w5tgmn" path="res://enemies/enemy_flying_3.tscn" id="8_avl1m"]
+[ext_resource type="PackedScene" uid="uid://d2j1qy3w5tgmn" path="res://enemies/Scenes/enemy_flying_3.tscn" id="8_avl1m"]
 [ext_resource type="Script" path="res://scenes/levels/main_camera.gd" id="9_0dmmo"]
 [ext_resource type="Script" path="res://scenes/levels/scoreLabel.gd" id="10_teb0w"]
 

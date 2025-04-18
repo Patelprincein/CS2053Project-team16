@@ -1,14 +1,13 @@
 extends CharacterBody2D
 
 var speed: int = 70
+var attack_speed: int = 140
 var patrolling: bool = true
 var seePlayer: bool = false
 var raycast_length: float = 300.0
 var last_pos: Vector2
 
-var rotation_speed: float = 2.0
-
-var bullet_scene = preload("res://enemies/enemy_bullet.tscn")
+var bullet_scene = preload("res://enemies/Scenes/enemy_bullet.tscn")
 var score_label
 
 @export var player: Node2D
@@ -34,7 +33,7 @@ func _physics_process(delta: float) -> void:
 			return_to_path()
 	
 	check_if_sees_player()
-	set_animation(delta)
+	set_animation()
 
 
 # Patrol around the Path2D line
@@ -46,7 +45,11 @@ func patrol(delta):
 
 # Raycast a ray to the player
 func check_if_sees_player():
-	var direction = (player.global_position - global_position).normalized()
+	var vector_diff = player.global_position - global_position
+	if vector_diff.length() <= 50:
+		explode()
+	
+	var direction = (vector_diff).normalized()
 	$RayCast2D.target_position = direction * raycast_length
 	
 	
@@ -64,17 +67,8 @@ func check_if_sees_player():
 # Shoot the player
 func shooting_motion():
 	var direction = (player.global_position - global_position).normalized()
-	velocity = direction * speed
+	velocity = direction * attack_speed
 	move_and_slide()
-
-func shoot():
-	
-	for i in range(4):
-		var bullet = bullet_scene.instantiate()
-		
-		bullet.global_position = position
-		bullet.direction = Vector2.RIGHT.rotated($Body.rotation + (i*PI/2)).normalized()
-		get_parent().add_child(bullet)
 
 
 # Return to Path
@@ -89,8 +83,32 @@ func return_to_path():
 
 
 # Set Animation
-func set_animation(delta):
-	$Body.rotation += delta * rotation_speed
+func set_animation():
+	var v: Vector2
+	if velocity == Vector2.ZERO:
+		v = (global_position - last_pos) * 20.0
+	else:
+		v = velocity
+	
+	
+	var vertical_threshold: float = 10.0
+	
+	if abs(v.y) < vertical_threshold:
+		if v.x < 0:
+			$AnimatedSprite2D.play("idle-left")
+		else:
+			$AnimatedSprite2D.play("idle-right")
+	else:
+		if v.y < 0:
+			if v.x < 0:
+				$AnimatedSprite2D.play("up-left")
+			else:
+				$AnimatedSprite2D.play("up-right")
+		else:
+			if v.x < 0:
+				$AnimatedSprite2D.play("down-left")
+			else:
+				$AnimatedSprite2D.play("down-right")
 
 # Ouch
 func got_hit():
@@ -101,14 +119,17 @@ func got_hit():
 		queue_free()
 
 func add_score():
+	print("aa")
 	score_label.enemy_killed()
 
-
-func _on_bullet_timer_timeout() -> void:
-	if seePlayer:
-		shoot()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("playerBullet"):
 		got_hit()
 		area.queue_free()
+
+
+func explode():
+	print("bim bam boum")
+	score_label.enemy_killed()
+	queue_free()

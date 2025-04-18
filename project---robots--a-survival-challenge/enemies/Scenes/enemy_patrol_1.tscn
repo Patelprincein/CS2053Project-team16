@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://c2srbxugapvy8"]
 
-[ext_resource type="Script" path="res://enemies/enemy_patrol_1.gd" id="1_nehsn"]
+[ext_resource type="Script" path="res://enemies/Scripts/enemy_patrol_1.gd" id="1_nehsn"]
 [ext_resource type="Texture2D" uid="uid://pf4ivps5lat0" path="res://enemies/textures/tempEnemyPatrol1.png" id="2_i2oti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbd22"]

@@ -109,7 +109,8 @@ func visible_jets(val):
 
 
 func player_faces():
-	if (((left_arm.rotation_degrees < -90 && left_arm.rotation_degrees > -180) || (left_arm.rotation_degrees < 180 && left_arm.rotation_degrees > 90)) && ((get_global_mouse_position().x - left_arm.global_position.x) < 0)):
-		$Body.scale.x = -$Body.scale.x
-	if (((left_arm.rotation_degrees < -90 && left_arm.rotation_degrees > -180) || (left_arm.rotation_degrees < 180 && left_arm.rotation_degrees > 90)) && ((get_global_mouse_position().x - left_arm.global_position.x) > 0)):
-		$Body.scale.x = -$Body.scale.x
+	if can_move:
+		if get_global_mouse_position().x < global_position.x:
+			$Body.scale.x = -abs(body_scale_x) # Ensure it's flipped
+		else:
+			$Body.scale.x = abs(body_scale_x)  # Ensure it's not flipped

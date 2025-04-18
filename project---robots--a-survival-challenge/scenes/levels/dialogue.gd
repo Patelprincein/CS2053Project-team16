@@ -1,8 +1,9 @@
 extends Panel
 
-@onready var dialogue_box : Panel = get_node("DialogueBox")
+@onready var dialogue_box : Panel = get_node("/root/level-1/CanvasLayer/DialogueBox")
 
 
 func _on_start_button_pressed() -> void:
+	@warning_ignore("shadowed_variable")
 	var dialogue_box = get_parent()
 	dialogue_box.visible = false 

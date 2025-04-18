@@ -161,6 +161,7 @@ text = "Menu"
 
 [node name="Player-Body" parent="." groups=["player"] instance=ExtResource("7_3xtxb")]
 position = Vector2(61, 179)
+scale = Vector2(0.5, 0.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

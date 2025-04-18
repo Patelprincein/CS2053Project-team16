@@ -269,11 +269,12 @@ rotates = false
 player = NodePath("../../../../Player-Body")
 
 [node name="Player-Body" parent="." groups=["player"] instance=ExtResource("9_u6ucp")]
-position = Vector2(30, 301)
+position = Vector2(169, 309)
 scale = Vector2(0.45, 0.45)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(460, 200)
+scale = Vector2(0.1, 0.1)
 zoom = Vector2(1.25, 1.25)
 script = ExtResource("10_pcd30")
 player = NodePath("../Player-Body")
@@ -333,4 +334,4 @@ position = Vector2(2258, 312)
 shape = SubResource("RectangleShape2D_8356f")
 
 [connection signal="pressed" from="CanvasLayer/DialogueBox/StartButton" to="CanvasLayer/DialogueBox" method="_on_start_button_pressed"]
-[connection signal="body_entered" from="Flag/endLevel2" to="Player-Body" method="_on_end_level_2_body_entered"]
+[connection signal="body_entered" from="Flag/endLevel2" to="." method="_on_end_of_level_body_entered"]

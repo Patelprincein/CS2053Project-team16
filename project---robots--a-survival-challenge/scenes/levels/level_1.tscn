@@ -135,7 +135,7 @@ border_width_bottom = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8356f"]
 size = Vector2(21, 49)
 
-[node name="level-1" type="Node2D"]
+[node name="level_1" type="Node2D"]
 script = ExtResource("1_lyj1o")
 
 [node name="TileMap" type="Node2D" parent="."]
@@ -202,10 +202,11 @@ script = ExtResource("10_pcd30")
 player = NodePath("../Player-Body")
 
 [node name="ScoreLabel" type="Label" parent="Camera2D" node_paths=PackedStringArray("player")]
-offset_left = -455.0
-offset_top = -177.0
-offset_right = -313.0
-offset_bottom = -154.0
+offset_left = -1150.0
+offset_top = -1050.0
+offset_right = -1008.0
+offset_bottom = -1027.0
+scale = Vector2(8.66191, 11.1242)
 text = "Aliens defeated : 0"
 label_settings = SubResource("LabelSettings_wm56r")
 script = ExtResource("11_j2unq")
@@ -299,7 +300,7 @@ text = "Click to Start"
 metadata/_edit_use_anchors_ = true
 
 [node name="Flag" type="Sprite2D" parent="."]
-position = Vector2(2260, 315)
+position = Vector2(2301, 316)
 texture = ExtResource("11_3e5ps")
 
 [node name="endLevel2" type="Area2D" parent="Flag"]
@@ -310,3 +311,4 @@ position = Vector2(2258, 312)
 shape = SubResource("RectangleShape2D_8356f")
 
 [connection signal="pressed" from="CanvasLayer/DialogueBox/StartButton" to="CanvasLayer/DialogueBox" method="_on_start_button_pressed"]
+[connection signal="body_entered" from="Flag/endLevel2" to="." method="_on_end_level_2_body_entered"]

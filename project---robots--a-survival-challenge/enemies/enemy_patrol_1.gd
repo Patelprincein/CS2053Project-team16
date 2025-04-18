@@ -20,7 +20,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if patrolling:
 		patrol(delta)
-	
 	check_if_sees_player()
 
 
@@ -47,7 +46,6 @@ func check_if_sees_player():
 			patrolling = false
 			$AnimatedSprite2D.play("idle")
 
-
 # Shoot the player
 func shoot():
 	var bullet = bullet_scene.instantiate()
@@ -55,7 +53,7 @@ func shoot():
 	bullet.direction = (player.global_position - global_position).normalized()
 	get_parent().add_child(bullet)
 
-# Ouch
+# Kill alien
 func got_hit():
 	health -= 1
 	$HealthBar.value = health
@@ -64,13 +62,11 @@ func got_hit():
 		queue_free()
 
 func add_score():
-	print("aa")
 	score_label.enemy_killed()
 
 func _on_bullet_timer_timeout() -> void:
 	if not patrolling:
 		shoot()
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("playerBullet"):

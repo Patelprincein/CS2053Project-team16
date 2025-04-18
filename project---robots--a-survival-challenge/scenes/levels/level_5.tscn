@@ -451,4 +451,4 @@ position = Vector2(2258, 312)
 shape = SubResource("RectangleShape2D_6ifj0")
 
 [connection signal="pressed" from="Camera2D/CanvasLayer/DialogueBox/StartButton" to="Camera2D/CanvasLayer/DialogueBox" method="_on_start_button_pressed"]
-[connection signal="body_entered" from="Flag/endLevel2" to="." method="_on_end_level_2_body_entered"]
+[connection signal="body_entered" from="Flag/endLevel2" to="." method="_on_end_level_5_body_entered"]

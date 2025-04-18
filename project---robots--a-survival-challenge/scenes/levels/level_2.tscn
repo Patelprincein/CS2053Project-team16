@@ -286,7 +286,7 @@ rotation = 0.011299
 player = NodePath("../../../../Player-Body")
 
 [node name="Flag" type="Sprite2D" parent="."]
-position = Vector2(2200, 189)
+position = Vector2(2263, 188)
 texture = ExtResource("7_3cmso")
 
 [node name="endLevel2" type="Area2D" parent="Flag"]

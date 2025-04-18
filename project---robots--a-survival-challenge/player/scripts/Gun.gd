@@ -15,7 +15,8 @@ func _ready() -> void:
 	fire_timer.connect("timeout", Callable(self, "_fire_bullet"))
 	add_child(fire_timer)
 
-func _process(delta: float) -> void:
+@warning_ignore("unused_parameter")
+func _process(delta):
 	# Start the timer if the player is holding down the "shoot" action.
 	if Input.is_action_pressed("shoot") and not firing:
 		firing = true
@@ -24,6 +25,7 @@ func _process(delta: float) -> void:
 	elif not Input.is_action_pressed("shoot") and firing:
 		firing = false
 		fire_timer.stop()
+	pass
 
 func _fire_bullet() -> void:
 	if bullet_scene == null:
